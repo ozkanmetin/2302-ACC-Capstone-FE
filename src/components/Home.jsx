@@ -1,0 +1,63 @@
+import React, { useState, useEffect } from "react";
+import SingleItem from "./SingleItem";
+import ItemModal from "./ItemModal";
+
+export const Home = () => {
+    const [products, setProducts] = useState([]);
+    const [selectedItem, setSelectedItem] = useState(null);
+
+    useEffect(() => {
+        const getAllData = async () => {
+            try {
+                const response = await fetch('https://fakestoreapi.com/products');
+                const results = await response.json();
+                setProducts(results);
+            } catch (err) {
+                console.error(err);
+            }
+        }
+        getAllData();
+    }, []);
+
+    const handleItemClick = (item) => {
+        setSelectedItem(item);
+    };
+
+    return (
+        <>  
+            <nav className="product-filter">
+                <h1>Products</h1>
+                <div className="sort">
+                    <div className="collection-sort" id="divFilterby">
+                        <label>Filter by:</label>
+                        <select id="selectFilterby" name="selectFilterby">
+                            <option value="/">All Items</option>
+                            <option value="/women">Women's Clothing</option>
+                            <option value="/men">Men's Clothing</option>
+                        </select>
+                    </div>
+                    <div className="collection-sort" id="divSortby">
+                        <label>Sort by:</label>
+                        <select id="selectSortby" name="selectSortby">
+                            <option value="/featured">Featured</option>
+                            <option value="/price_09">Price: Low to High</option>
+                            <option value="/price_90">Price: High to Low</option>
+                            <option value="/best_sellers">Best Sellers</option>
+                        </select>
+                    </div>
+                </div>
+            </nav>
+            <section className="products">
+                {products.length &&
+                    products.map((item,i) => {
+                        if(item.category == "men's clothing" || item.category == "women's clothing")
+                            return (
+                                <SingleItem item={item} key={i} onClick={() => handleItemClick(item)} />
+                            );
+                    })
+                }
+            </section>
+            <p>&nbsp;</p>
+        </>
+    );
+}
