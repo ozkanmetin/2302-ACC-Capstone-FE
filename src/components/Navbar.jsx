@@ -13,7 +13,7 @@ export const Navbar = () => {
     
     return (
         <>
-           <img src="/logo.png" />
+           <img src="https://internationalhockeywiki.com/ihw/images/5/5a/Misto-Logo.png" />
            <div className='navbar'>
                 <ul>
                     <li><Link to={"/"}>Home</Link></li>
