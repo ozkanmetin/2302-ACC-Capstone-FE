@@ -23,6 +23,14 @@ export const Home = () => {
         setSelectedItem(item);
     };
 
+    const updateFilter = (e) => {
+
+    }
+
+    const updateSort = (e) => {
+
+    }
+
     return (
         <>  
             <nav className="product-filter">
@@ -30,7 +38,7 @@ export const Home = () => {
                 <div className="sort">
                     <div className="collection-sort" id="divFilterby">
                         <label>Filter by:</label>
-                        <select id="selectFilterby" name="selectFilterby">
+                        <select defaultValue={'/'} id="selectFilterby" name="selectFilterby" onChange={(e)=>updateFilter(e.target.value)}>
                             <option value="/">All Items</option>
                             <option value="/women">Women's Clothing</option>
                             <option value="/men">Men's Clothing</option>
@@ -38,7 +46,7 @@ export const Home = () => {
                     </div>
                     <div className="collection-sort" id="divSortby">
                         <label>Sort by:</label>
-                        <select id="selectSortby" name="selectSortby">
+                        <select defaultValue={'featured'} id="selectSortby" name="selectSortby" onChange={(e)=>updateSort(e.target.value)}>
                             <option value="/featured">Featured</option>
                             <option value="/price_09">Price: Low to High</option>
                             <option value="/price_90">Price: High to Low</option>

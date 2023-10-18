@@ -28,7 +28,7 @@ export const View = () => {
                 <h2>{item.title}</h2>
                 <h3>Price: {item.price} USD</h3>
                 <p>
-                    <label className="label">Quantity: </label><input id="count" value="1" size="1" maxLength="2" onChange={e => setQuantity(e.target.value)} />&nbsp;
+                    <label className="label">Quantity: </label><input type="text" id="count" value="1" size="1" maxLength="2" onChange={e => setQuantity(e.target.value)} />&nbsp;
                     <button onClick={()=>navigate("/Cart/"+item.id)}>Add to Cart</button>
                 </p>
                 <h4>Rating: {item.rating.rate} stars</h4>
