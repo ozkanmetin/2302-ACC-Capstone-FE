@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 export default function SingleItem({item}) {
     const [showModal, setShowModal] = useState(false);
 
-    const handleOpenModal = () => {
+    const handleOpenModal = () => { 
         setShowModal(true);
     };
     

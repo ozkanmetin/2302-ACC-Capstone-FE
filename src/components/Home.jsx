@@ -13,7 +13,7 @@ export const Home = () => {
                 const results = await response.json();
                 setProducts(results);
             } catch (err) {
-                console.error(err);
+                console.error(err); 
             }
         }
         getAllData();

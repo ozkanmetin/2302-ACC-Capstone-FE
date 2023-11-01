@@ -17,7 +17,7 @@ export const View = () => {
                 console.error(err);
             }
         }
-        getSingleData();
+        getSingleData(); 
     }, []);
 
     let count=0;
